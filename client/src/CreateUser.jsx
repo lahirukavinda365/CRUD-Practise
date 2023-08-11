@@ -2,18 +2,23 @@
 
 import { useState } from "react";
 import axios from 'axios';
+import {useNavigate} from 'react-router-dom'
 
 function CreateUser() {
 
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [age, setAge] = useState();
+  const navigate = useNavigate();
   
   const Submit = (e) => {
       e.preventDefault();
 
       axios.post("http://localhost:3001/createuser", { name, email, age})
-      .then( result => console.log(result))
+      .then( result => { 
+        console.log(result)
+        navigate('/');
+      })
       .catch(err => console.log(err)) 
   }
 

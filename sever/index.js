@@ -26,10 +26,25 @@ const dbConnect = module.exports = () => {
 dbConnect();
 
 // CRUD 
+
+app.get('/', (req,res) => {
+    UserModel.find({})
+    .then(users => res.json(users))
+    .catch(err => res.json(err))
+})
+
+
+
+
+
+
 // post request for create a record
 app.post("/createUser", (req,res) => {
     UserModel.create(req.body)
-    .then(users => res.json(users))
+    .then(users => {
+        res.json(users)
+    
+    })
     .catch(err => res.json(err))
 });
 
