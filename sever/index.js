@@ -55,6 +55,15 @@ app.put('/updateUser/:id', (req, res) => {
     .catch(err => res.json(err))
 })
 
+// delete request
+
+app.delete('/deleteUser/:id', (req,res) => {
+    const id = req.params.id;
+    UserModel.findByIdAndDelete({_id:id})
+    .then(res = res.json(res))
+    .catch(err => res.json(err))
+})
+
 
 
 // post request for create a record

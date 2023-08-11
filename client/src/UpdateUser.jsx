@@ -20,7 +20,7 @@ function UpdateUser() {
       setAge(result.data.age) 
     })
     .catch(err => console.log(err))
-  },[])
+  })
 
   const Update = (e) => {
       e.preventDefault();
